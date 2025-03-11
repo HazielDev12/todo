@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+#task-list li {
+    background: white;
+    margin: 5px auto;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.complete {
+    text-decoration: line-through;
+    color: gray;
+}
+
+#new-task {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#add-task {
+    padding: 8px 15px;
+    border: none;
+    background: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#add-task:hover {
+    background: #218838;
+}
+
+
+button {
+    --btn-color: rgb(124 45 18);
+    --btn-bg: rgb(252 211 77);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
+    padding: 4px;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: system-ui;
+    border: 2px solid var(--btn-color);
+    transition: 100ms ease;
+    box-shadow: 5px 5px 0 0 var(--btn-color);
+  }
+  
+  button--secondary {
+    --btn-color: #444;
+    --btn-bg: #fafafa;
+  }
+  
+  button svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  
+  button:hover {
+    box-shadow: 2px 2px 0 0 var(--btn-color);
+  }
+  
+  button:active {
+    transition: 50ms ease;
+    box-shadow:  0 0 0 0 var(--btn-color);
+  }
+  
+  button:focus-visible {
+    outline: 0;
+    --btn-color: #002cc8;
+  }
+  
+  button:focus-visible::after {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    transform: translateX(-50%);
+    content: "\21E7";
+    animation: float .5s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+      0% {
+          transform: translateX(-50%) translatey(0px);
+      }
+      50% {
+          transform: translateX(-50%) translatey(-6px);
+      }
+      100% {
+          transform: translateX(-50%) translatey(0px);
+      }
+  }

@@ -1,16 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TodoItem = void 0;
-class TodoItem {
+export class TodoItem {
     constructor(id, task, complete = false) {
         this.id = id;
         this.task = task;
         this.complete = complete;
-        // no statements required
     }
     printDetails() {
-        console.log(`${this.id}\t${this.task} ${this.complete
-            ? "\t(complete)" : ""}`);
+        console.log(`${this.id} - ${this.task} ${this.complete ? "(complete)" : ""}`);
     }
 }
-exports.TodoItem = TodoItem;

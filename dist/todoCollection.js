@@ -1,40 +1,30 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TodoCollection = void 0;
-const todoItem_1 = require("./todoItem");
-class TodoCollection {
+import { TodoItem } from "./todoItem.js"; // ← Nota el ".js" en la importación
+export class TodoCollection {
     constructor(userName, todoItems = []) {
         this.userName = userName;
         this.nextId = 1;
         this.itemMap = new Map();
+        this.itemMap = new Map();
         todoItems.forEach(item => this.itemMap.set(item.id, item));
+    }
+    markComplete(id) {
+        let item = this.itemMap.get(id);
+        if (item) {
+            item.complete = true; // Marca la tarea como completada
+        }
     }
     addTodo(task) {
         while (this.getTodoById(this.nextId)) {
             this.nextId++;
         }
-        this.itemMap.set(this.nextId, new todoItem_1.TodoItem(this.nextId, task));
+        this.itemMap.set(this.nextId, new TodoItem(this.nextId, task));
         return this.nextId;
     }
     getTodoById(id) {
         return this.itemMap.get(id);
     }
     getTodoItems(includeComplete) {
-        return [...this.itemMap.values()]
-            .filter(item => includeComplete || !item.complete);
-    }
-    markComplete(id, complete) {
-        const todoItem = this.getTodoById(id);
-        if (todoItem) {
-            todoItem.complete = complete;
-        }
-    }
-    removeComplete() {
-        this.itemMap.forEach(item => {
-            if (item.complete) {
-                this.itemMap.delete(item.id);
-            }
-        });
+        return [...this.itemMap.values()].filter(item => includeComplete || !item.complete);
     }
     getItemCounts() {
         return {
@@ -43,4 +33,3 @@ class TodoCollection {
         };
     }
 }
-exports.TodoCollection = TodoCollection;
